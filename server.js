@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
+app.get('/cupcakes', (req, res) => {
+    res.render('cupcakes.ejs')
+})
+
 
 //___________________________________
 //
