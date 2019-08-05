@@ -20,8 +20,15 @@
     </div>
 
     <!-- Cupcakes -->
-    <div>
-cupcakes cards will come here
+    <div class="container">
+        <%treats.forEach((cupcake, index) => {%>
+            <div class="">
+                <img src="<%=cupcake.image%>" alt="<%=cupcake.name%>">
+                <h2><%=cupcake.name%></h2>
+                <h4><%=cupcake.description%></h4>
+                <h4>Price: $<%=cupcake.unitPrice%></h4>
+            </div>
+        <%})%>
     </div>
 
     <!-- Other Sweet Treats -->

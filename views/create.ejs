@@ -39,30 +39,32 @@
             </div>
     </nav>
 
-    <!-- main photo -->
-    <div class="jumbotron jumbotron-fluid main-photo">
-        <div class="container ">
-          <h1 class="display-4 words">Best. Cupcake. Eva!</h1>
-          <p class="lead">Come visit our beautiful shop and try some of the most delicious treats you can imagine.</p>
-        </div>
-    </div>
 
-    <!-- treat options -->
+    <!-- create form -->
     <div>
-        Select a Treat to see full flavor menu and options
-        <div>
-            <ul>
-                <li><a href="#">Cupcakes</a></li>
-                <li><a href="#">Cake Pops</a></li>
-                <li><a href="#">Dessert Bars</a></li>
-                <li><a href="#">Macarons</a></li>
-                <li><a href="#">Cakes</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- testimonies -->
-    <div>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="textarea" class="form-control" id="description" name="description">
+            </div>
+            <div class="form-group">
+                    <label for="image">Image url</label>
+                    <input type="text" class="form-control" id="image" name="image">
+                </div>
+            <div class="form-group">
+                <label for="type">Type of Treat</label>
+                <input type="text" class="form-control" id="type" name="type" placeholder="cupcake, dessert bar, cake pop, cookie, macarron, other">
+            </div>
+            <div class="form-group">
+                    <label for="price">Unit Price</label>
+                    <input type="number" class="form-control" id="price" name="price">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
     </div>
 
