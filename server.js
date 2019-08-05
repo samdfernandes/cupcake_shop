@@ -7,8 +7,9 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const Treat = require('./models/treat')
-const treatsController = require('./controllers/treats')
+const cupcakesController = require('./controllers/cupcakes')
 const seed = require('./models/seed')
+const methodOverride = require('method-override')
 
 //___________________________________
 //
@@ -26,11 +27,11 @@ app.use(express.urlencoded({ extended: false }));
 //   resave: false,
 //   saveUninitialized: false
 // }))
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 app.use(express.json());
 // static files middleware
 app.use(express.static('public'))
-app.use(treatsController)
+app.use('/cupcakes', cupcakesController)
 
 
 //___________________________________
@@ -50,14 +51,24 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
 // Routes
 //___________________________________
 //localhost: 3000
+
+//home page
 app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
-app.get('/cupcakes', (req, res) => {
-    res.render('cupcakes.ejs')
+//create new treat
+app.get('/create', (req, res) => {
+    res.render('create.ejs')
 })
 
+app.post('/', (req, res) => {
+    Treat.create(req.body, () => {
+        res.redirect('/')
+    })
+})
+ 
+//seed route
 app.get('/seedTreats', (req, res) => {
     Treat.create(seed, (err, createdTreats) => {
         if (err) {

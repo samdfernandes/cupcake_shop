@@ -12,10 +12,10 @@
 </head>
 <body>
     <!-- top nav -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Navbar content -->
 
-            <a class="navbar-brand gypsy" href="#">Cupcake Shop</a>
+            <a class="navbar-brand gypsy" href="#">Gypsy Cakes</a>
             <!-- Toggle Nav on Smaller Screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,30 +39,33 @@
             </div>
     </nav>
 
-    <!-- main photo -->
-    <div class="jumbotron main-photo">
-        <div class="container ">
-          <h1 class="display-4 words">Best. Cupcake. Eva!</h1>
-          <p class="lead">Come visit our beautiful shop and try some of the most delicious treats you can imagine.</p>
-        </div>
-    </div>
 
-    <!-- treat options -->
+    <!-- edit form -->
     <div>
-        Select a Treat to see full flavor menu and options
-        <div>
-            <ul>
-                <li><a href="cupcakes">Cupcakes</a></li>
-                <li><a href="#">Cake Pops</a></li>
-                <li><a href="#">Dessert Bars</a></li>
-                <li><a href="#">Macarons</a></li>
-                <li><a href="#">Cakes</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- testimonies -->
-    <div>
+        <form action="/cupcakes/<%=treat.id%>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%=treat.name%>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="textarea" class="form-control" id="description" name="description" value="<%=treat.description%>">
+            </div>
+            <div class="form-group">
+                    <label for="image">Image url</label>
+                    <input type="text" class="form-control" id="image" name="image" value="<%=treat.image%>">
+                    <img src="<%=treat.image%>" alt="<%=treat.name%>" class="edit-image">
+            </div>
+            <div class="form-group">
+                <label for="type">Type of Treat</label>
+                <input type="text" class="form-control" id="type" name="type" value="<%=treat.type%>">
+            </div>
+            <div class="form-group">
+                    <label for="price">Unit Price</label>
+                    <input type="number" class="form-control" id="price" name="price" value="<%=treat.unitPrice%>">
+            </div>
+            <button type="submit" class="btn btn-danger">Update</button>
+        </form>
 
     </div>
 

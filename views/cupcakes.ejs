@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gypsy Cakes</title>
+    <title>Cupcake Shop</title>
 <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -20,15 +20,25 @@
     </div>
 
     <!-- Cupcakes -->
-    <div class="container">
-        <%treats.forEach((cupcake, index) => {%>
-            <div class="">
-                <img src="<%=cupcake.image%>" alt="<%=cupcake.name%>">
-                <h2><%=cupcake.name%></h2>
-                <h4><%=cupcake.description%></h4>
-                <h4>Price: $<%=cupcake.unitPrice%></h4>
-            </div>
-        <%})%>
+    <div class="myContainer">
+        
+                <%treats.forEach((cupcake, index) => {%>
+                    <div class="myCards" id="<%=cupcake.id%>">
+                        <img src="<%=cupcake.image%>" class=cardImage alt="<%=cupcake.name%>">
+                        <div class="card-body">
+                                <h5 class="treat"><%=cupcake.name.toUpperCase()%></h5>
+                                <h6><%=cupcake.description%></h6>
+                                <p>Price: $<%=cupcake.unitPrice%>0</p>
+                                <form action="/cupcakes/<%=cupcake.id%>?_method=DELETE" method="POST">
+                                    <input type="submit" name="delete" id="delete" value="DELETE ITEM" class="btn btn-danger">
+                                </form>
+                                <a href="cupcakes/<%=cupcake.id%>/edit" class="card-link">Edit</a>
+                        </div>
+                        
+                    </div>
+                <%})%>
+       
+        
     </div>
 
     <!-- Other Sweet Treats -->
