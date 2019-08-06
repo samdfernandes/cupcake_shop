@@ -8,8 +8,12 @@ const app = express()
 const mongoose = require('mongoose')
 const Treat = require('./models/treat')
 const cupcakesController = require('./controllers/cupcakes')
+const cakePopController = require('./controllers/cakePop')
+const cookieController = require('./controllers/cookies')
+const macaronController = require('./controllers/macarons')
 const seed = require('./models/seed')
 const methodOverride = require('method-override')
+
 
 //___________________________________
 //
@@ -32,6 +36,10 @@ app.use(express.json());
 // static files middleware
 app.use(express.static('public'))
 app.use('/cupcakes', cupcakesController)
+app.use('/cakePop', cakePopController)
+app.use('/cookies', cookieController)
+app.use('/macarons', macaronController)
+
 
 
 //___________________________________
@@ -54,6 +62,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
 
 //home page
 app.get('/', (req, res) => {
+
     res.render('index.ejs')
 })
 
@@ -80,6 +89,14 @@ app.get('/seedTreats', (req, res) => {
     })
 })
 
+
+app.get('/cakes', (req, res) => {
+    res.render('cakes.ejs')
+})
+
+app.get('/contact', (req, res) => {
+    res.render('contact.ejs')
+})
 
 //___________________________________
 //

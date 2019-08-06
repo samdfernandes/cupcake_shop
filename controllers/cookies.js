@@ -12,27 +12,27 @@ const Treat = require('../models/treat')
 // Routes
 //___________________________________
 
-//Show cupcakes
+//Show cakePops
 router.get('/', (req, res) => {
-    Treat.find({type: 'cupcake'}, (err, foundCupcakes) => {
+    Treat.find({type: 'dessert bar'}, (err, foundCookies) => {
         if (err) {
             console.log(err);
         } else {
-            res.render('cupcakes.ejs', {
-                treats: foundCupcakes
+            res.render('cookies.ejs', {
+                treats: foundCookies
             })
         }
     })
 })
 
-//delete cupcakes
+//delete cakePops
 router.delete('/:id', (req, res) => {
-    Treat.findByIdAndRemove(req.params.id, (err, foundCupcake) => {
-        res.redirect('/cupcakes')
+    Treat.findByIdAndRemove(req.params.id, (err, foundCookies) => {
+        res.redirect('/cookies')
     })
 })
 
-//edit cupcakes
+//edit cakePops
 router.get('/:id/edit', (req, res) => {
     Treat.findById(req.params.id, (err, foundTreat) => {
         if (err) {
@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
         } else {
             console.log(updatedTreat);
-            res.redirect(`/cupcakes`)
+            res.redirect(`/cookies`)
         }
     })
 })

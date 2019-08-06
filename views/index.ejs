@@ -1,73 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gypsy Cakes</title>
-<!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
+        <% include ../partials/head.ejs %>
 </head>
 <body>
     <!-- top nav -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Navbar content -->
-
-            <a class="navbar-brand gypsy" href="#">Cupcake Shop</a>
-            <!-- Toggle Nav on Smaller Screens -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Actual Nav links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Sweet Treats</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bottom-section">About</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/create">Create</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/seedTreats">Seed</a>
-                    </li>
-                </ul>
-            </div>
-    </nav>
-
+    <% include ../partials/nav.ejs %>
     <!-- main photo -->
-    <div class="jumbotron main-photo">
-        <div class="container ">
-          <h1 class="display-4 words">Best. Cupcake. Eva!</h1>
-          <p class="lead">Come visit our beautiful shop and try some of the most delicious treats you can imagine.</p>
-        </div>
-    </div>
 
-    <!-- treat options -->
-    <div>
-        Select a Treat to see full flavor menu and options
-        <div>
-            <ul>
-                <li><a href="cupcakes">Cupcakes</a></li>
-                <li><a href="#">Cake Pops</a></li>
-                <li><a href="#">Dessert Bars</a></li>
-                <li><a href="#">Macarons</a></li>
-                <li><a href="#">Cakes</a></li>
-            </ul>
-        </div>
-    </div>
+    <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://images.unsplash.com/photo-1551404973-761c83cd8339?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"></div>
+          </div>
+              <!-- treat options -->
+          <div class="section">
+            <div class="row container treats">
+                <h3 class="sweet-text">Pick a treat to learn more!</h3>
+                    <ul class="myicons">
+                            <li>
+                                <a href="cupcakes"><img class="dessert-icons" src="/imgages/cupcake.png" alt="cupcake icon"></a>
+                            </li>
+                            <li>
+                                    <a href="macarons"><img class="dessert-icons" src="/imgages/macarons.png" alt="macarons icon"></a>
+                            </li>
+                            <li>
+                                    <a href="cookies"><img class="dessert-icons" src="/imgages/biscuit.png" alt="cookie icon">
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="cakePop"><img class="dessert-icons" src="/imgages/cake-pop.png" alt="cake pop icon"></a>
+                            </li>
+                            <li>
+                                    <a href="cake"><img class="dessert-icons" src="/imgages/cake.png" alt="cake icon"></a>
+                            </li>
+                    </ul>
+            </div>
+          </div>
+          <div class="parallax-container">
+            <div class="parallax"><img src="https://assets.marthastewart.com/styles/wmax-520-highdpi/d24/cake-slice-065-mld109900/cake-slice-065-mld109900_horiz.jpg?itok=7N3pzHAe"></div>
+          </div>
+       
+
+
+
 
     <!-- testimonies -->
-    <div>
+    <div class="carousel carousel-slider center">
 
-    </div>
+            <div class="carousel-item pink lighten-5" href="#one!">
+              <h2>First Panel</h2>
+              <p class="black-text">This is your first panel</p>
+            </div>
+            <div class="carousel-item pink lighten-5" href="#two!">
+              <h2>Second Panel</h2>
+              <p class="black-text">This is your second panel</p>
+            </div>
+            <div class="carousel-item pink lighten-5" href="#three!">
+              <h2>Third Panel</h2>
+              <p class="black-text">This is your third panel</p>
+            </div>
+            <div class="carousel-item pink lighten-5" href="#four!">
+              <h2>Fourth Panel</h2>
+              <p class="black-text">This is your fourth panel</p>
+            </div>
+          </div>
+                
+        
 
     <!-- bottom / Store Info -->
     <div id="bottom-section">
@@ -77,12 +75,22 @@
 
         </div>
     </div>
-
     
+              
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.parallax');
+    let instances = M.Parallax.init(elems, {responsiveThreshold: 300});
+  });
 
-    <!-- bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.carousel');
+    let instances = M.Carousel.init(elems, {duration:100, padding:2, indicators:true, fullWidth: false});
+  });
+ 
+</script>
+
+<% include ../partials/footer.ejs%>
+           
 </body>
 </html>

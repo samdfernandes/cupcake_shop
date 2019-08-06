@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Emilys+Candy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nova+Slim&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
 
 .gypsy {
-    font-family: 'Emilys Candy', cursive;
-    font-size: 3em;
-    padding: 1%;
-    border: 3px dotted #85144b;
-    color: #85144b;
-    border-radius: 20px
+    font-family: 'Nova Slim', cursive;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .main-photo {
@@ -19,7 +17,68 @@
 
 .myContainer {
     width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-wrap: wrap
 }
+
+form {
+    width: 100%
+}
+
+.card-action {
+    display: flex;
+    align-items: center;
+}
+
+.parallax-container {
+    margin-top: 0;
+  }
+
+.parallax {
+    height: 70%
+}
+
+.treats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myicons { 
+    display: flex;
+    justify-content: space-between;
+    width: 80%
+}
+
+li {
+    padding: 1%
+}
+
+.dessert-icons {
+    width: 100px
+}
+
+.credits {
+    font-size: 10px;
+    text-align: center
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: center
+}
+
+.social {
+    /* width: 10px */
+}
+
+.sweet-text {
+    font-family: 'Sacramento', cursive;
+}
+
+.foot-container {
+    display: flex;
+    justify-content: flex-start;
+}
+

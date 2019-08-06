@@ -12,27 +12,27 @@ const Treat = require('../models/treat')
 // Routes
 //___________________________________
 
-//Show cupcakes
+//Show Macarons
 router.get('/', (req, res) => {
-    Treat.find({type: 'cupcake'}, (err, foundCupcakes) => {
+    Treat.find({type: 'macarons'}, (err, foundMacarons) => {
         if (err) {
             console.log(err);
         } else {
-            res.render('cupcakes.ejs', {
-                treats: foundCupcakes
+            res.render('macarons.ejs', {
+                treats: foundMacarons
             })
         }
     })
 })
 
-//delete cupcakes
+//delete Macarons
 router.delete('/:id', (req, res) => {
-    Treat.findByIdAndRemove(req.params.id, (err, foundCupcake) => {
-        res.redirect('/cupcakes')
+    Treat.findByIdAndRemove(req.params.id, (err, foundMacarons) => {
+        res.redirect('/macarons')
     })
 })
 
-//edit cupcakes
+//edit Macarons
 router.get('/:id/edit', (req, res) => {
     Treat.findById(req.params.id, (err, foundTreat) => {
         if (err) {
@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
         } else {
             console.log(updatedTreat);
-            res.redirect(`/cupcakes`)
+            res.redirect(`/macarons`)
         }
     })
 })
