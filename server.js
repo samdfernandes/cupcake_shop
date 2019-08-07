@@ -11,8 +11,12 @@ const cupcakesController = require('./controllers/cupcakes')
 const cakePopController = require('./controllers/cakePop')
 const cookieController = require('./controllers/cookies')
 const macaronController = require('./controllers/macarons')
+const sessionsController = require('./controllers/sessions')
 const seed = require('./models/seed')
 const methodOverride = require('method-override')
+
+const session = require('express-session')
+const bcrypt = require('bcrypt')
 
 
 //___________________________________
@@ -26,11 +30,11 @@ const PORT = process.env.PORT || 3000
 // Middleware
 //___________________________________
 app.use(express.urlencoded({ extended: false }));
-// app.use(session({
-//   secret: 'mySecretString',
-//   resave: false,
-//   saveUninitialized: false
-// }))
+app.use(session({
+  secret: 'mySecretString',
+  resave: false,
+  saveUninitialized: false
+}))
 app.use(methodOverride('_method'))
 app.use(express.json());
 // static files middleware
@@ -39,6 +43,7 @@ app.use('/cupcakes', cupcakesController)
 app.use('/cakePop', cakePopController)
 app.use('/cookies', cookieController)
 app.use('/macarons', macaronController)
+app.use('/sessions', sessionsController)
 
 
 

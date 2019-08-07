@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../../partials/head.ejs %>
+    </head>
+    <body>
+        <h1>Create User</h1>
+        <form action="/users" method="POST">
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" />
+            <input type="submit" value="Create User" />
+        </form>
+    </body>
+</html>
