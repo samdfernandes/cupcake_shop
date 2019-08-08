@@ -26,7 +26,11 @@ The goal with this project was to create a fullstack application that would allo
 
 ![Cupcake Detail](https://github.com/samdfernandes/cupcake_shop/blob/master/public/Screenshots%20Aug%202019/Screen%20Shot%202019-08-08%20at%202.52.00%20PM.png)
 
+## Forms Page
 ![Forms Page](https://github.com/samdfernandes/cupcake_shop/blob/master/public/Screenshots%20Aug%202019/Screen%20Shot%202019-08-08%20at%202.47.29%20PM.png)
+
+## Other Pages
+![Cake Page](https://github.com/samdfernandes/cupcake_shop/blob/master/public/Screenshots%20Aug%202019/cakepage.png)
 
 ## Production Ideas (Unsolved Problems)
 
