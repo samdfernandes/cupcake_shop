@@ -1,10 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Nova+Slim&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous&display=swap');
+
 .gypsy {
-    font-family: 'Nova Slim', cursive;
+    font-family: 'Righteous', cursive;
+    font-weight: bold;
+    padding-left: 1%;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.sacramento {
+    font-family: 'Sacramento', cursive;
+}
+
+.comforta {
+    font-family: 'Comfortaa', cursive;
 }
 
 .main-photo {
@@ -20,6 +31,15 @@
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap
+}
+
+.myFormContainer {
+    width: 90%;
+    height: 100%;
+    margin: 2% auto;
+    display: flex;
+    align-content: space-around
+
 }
 
 form {
@@ -82,3 +102,26 @@ li {
     justify-content: flex-start;
 }
 
+textarea {
+    width: 100%;
+    height: 300px;
+}
+
+.card-title-font {
+    font-family: 'Sacramento', cursive;
+}
+
+
+.cake-photo {
+    background-image: url("https://livforcake.com/wp-content/uploads/2019/01/white-cake-recipe-thumb2.1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.lh1 {
+    line-height: 1;
+}
+
+.card-color {
+ background-color: rgba(239,235,233, 0.8)
+}

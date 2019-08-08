@@ -14,12 +14,13 @@ const Treat = require('../models/treat')
 
 //Show cakePops
 router.get('/', (req, res) => {
-    Treat.find({type: 'dessert bar'}, (err, foundCookies) => {
+    Treat.find({type: 'cookie'}, (err, foundCookies) => {
         if (err) {
             console.log(err);
         } else {
             res.render('cookies.ejs', {
-                treats: foundCookies
+                treats: foundCookies,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -28,7 +29,7 @@ router.get('/', (req, res) => {
 //delete cakePops
 router.delete('/:id', (req, res) => {
     Treat.findByIdAndRemove(req.params.id, (err, foundCookies) => {
-        res.redirect('/cookies')
+        res.redirect('/cookie')
     })
 })
 
@@ -39,7 +40,8 @@ router.get('/:id/edit', (req, res) => {
             console.log(err);
         } else  {
             res.render('edit.ejs', {
-                treat: foundTreat
+                treat: foundTreat,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -51,7 +53,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
         } else {
             console.log(updatedTreat);
-            res.redirect(`/cookies`)
+            res.redirect(`/cookie`)
         }
     })
 })

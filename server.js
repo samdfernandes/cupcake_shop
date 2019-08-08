@@ -12,6 +12,7 @@ const cakePopController = require('./controllers/cakePop')
 const cookieController = require('./controllers/cookies')
 const macaronController = require('./controllers/macarons')
 const sessionsController = require('./controllers/sessions')
+const usersController = require('./controllers/users')
 const seed = require('./models/seed')
 const methodOverride = require('method-override')
 
@@ -39,11 +40,14 @@ app.use(methodOverride('_method'))
 app.use(express.json());
 // static files middleware
 app.use(express.static('public'))
-app.use('/cupcakes', cupcakesController)
-app.use('/cakePop', cakePopController)
-app.use('/cookies', cookieController)
-app.use('/macarons', macaronController)
+
+// files controllers
+app.use('/cupcake', cupcakesController)
+app.use('/cakepop', cakePopController)
+app.use('/cookie', cookieController)
+app.use('/macaron', macaronController)
 app.use('/sessions', sessionsController)
+app.use('/users', usersController)
 
 
 
@@ -68,12 +72,16 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
 //home page
 app.get('/', (req, res) => {
 
-    res.render('index.ejs')
+    res.render('index.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 //create new treat
 app.get('/create', (req, res) => {
-    res.render('create.ejs')
+    res.render('create.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 app.post('/', (req, res) => {
@@ -94,13 +102,30 @@ app.get('/seedTreats', (req, res) => {
     })
 })
 
+app.get('/app', (req, res) => {
+    Treat.find({}, (err, foundItems) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('app.ejs', {
+                currentUser: req.session.currentUser,
+                treats: foundItems
+            })
+        }
+    })
+})
+
 
 app.get('/cakes', (req, res) => {
-    res.render('cakes.ejs')
+    res.render('cakes.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 app.get('/contact', (req, res) => {
-    res.render('contact.ejs')
+    res.render('contact.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 //___________________________________

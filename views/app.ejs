@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+<body>
+    <% include ../partials/nav.ejs %>
+
+    <div class="container">
+            <h2>Welcome back <%=currentUser.username%>!</h2>
+
+            <ul>
+                <li><a href="/create">Create a New Treat</a></li>
+                <li><a href="/users/new">Create a New User</a></li>
+            </ul>
+        
+            
+            <div>
+                    <h5> Edit or Delete Individual Items</h5>
+                    <div class="row">
+                        <%treats.forEach((treat, index) => {%>        
+                            <div class="col s6 m4 l3">
+                                <div class="card large">
+                                    <div class="card-image">
+                                        <img src="<%=treat.image%>">
+                                        <span class="card-title"><%=treat.name%></span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p><%=treat.description%></p>
+                                        <p>Price: $<%=treat.unitPrice%>0</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <form action="/<%=treat.type%>/<%=treat.id%>?_method=DELETE" method="POST">
+                                            <input type="submit" name="delete" id="delete" value="DELETE" class="btn lime">
+                                        </form>
+                                        <a href="<%=treat.type%>/<%=treat.id%>/edit" class="card-link">Edit</a>
+                                    </div>
+                                </div>
+                            
+                            </div> 
+                        <%})%>
+                    </div>
+                </div>
+    </div>
+    
+
+    <% include ../partials/footer.ejs %>
+</body>
+</html>

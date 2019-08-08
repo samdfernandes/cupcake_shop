@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% include ../../partials/head.ejs %>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Cake Gypsy</title>
+            <!-- Favicon -->
+            <link rel="icon" href="/imgages/favicon.ico" type="image/x-ico">
+            <!-- <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/> -->
+            <!-- Materialize CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <!-- Materialize CSS Icons -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+            <!-- Main CSS -->
+            <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
-        <h1>Create User</h1>
-        <form action="/users" method="POST">
-            <input type="text" name="username" placeholder="username"/>
-            <input type="password" name="password" />
-            <input type="submit" value="Create User" />
-        </form>
+        <% include ../../partials/nav.ejs %>
+        <div class="container">
+            <br><br><br>
+                <h5>Create New User</h5>
+                <form action="/users" method="POST">
+                    <input type="text" name="username" placeholder="username"/>
+                    <input type="password" name="password" />
+                    <input type="submit" value="Create User" class="btn" />
+                </form>
+                <br><br>
+        </div>
+
+
+        <% include ../../partials/footer.ejs %>
+
     </body>
 </html>

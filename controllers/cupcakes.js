@@ -19,7 +19,8 @@ router.get('/', (req, res) => {
             console.log(err);
         } else {
             res.render('cupcakes.ejs', {
-                treats: foundCupcakes
+                treats: foundCupcakes,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -39,7 +40,8 @@ router.get('/:id/edit', (req, res) => {
             console.log(err);
         } else  {
             res.render('edit.ejs', {
-                treat: foundTreat
+                treat: foundTreat,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -51,7 +53,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
         } else {
             console.log(updatedTreat);
-            res.redirect(`/cupcakes`)
+            res.redirect(`/cupcake`)
         }
     })
 })

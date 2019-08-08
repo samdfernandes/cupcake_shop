@@ -1,15 +1,22 @@
 <nav>
     <!-- dropdown menu -->
         <ul id="dropdown1" class="dropdown-content">
-                <li><a href="cupcakes">Cupcakes</a></li>
-                <li><a href="cookies">Cookies & Bars</a></li>
-                <li><a href="cakePop">Cake Pops</a></li>
-                <li><a href="cakes">Cakes</a></li>
-                <li><a href="macarons">Macarons</a></li>
-              </ul>
+            <li><a href="cupcake">Cupcakes</a></li>
+            <li><a href="cookie">Cookies & Bars</a></li>
+            <li><a href="cakePop">Cake Pops</a></li>
+            <li><a href="cakes">Cakes</a></li>
+            <li><a href="macaron">Macarons</a></li>
+        </ul>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="cupcake">Cupcakes</a></li>
+            <li><a href="cookie">Cookies & Bars</a></li>
+            <li><a href="cakePop">Cake Pops</a></li>
+            <li><a href="cakes">Cakes</a></li>
+            <li><a href="macaron">Macarons</a></li>
+        </ul>
         <!-- Navbar content -->
     <div class="nav-wrapper pink">
-        <a class="brand-logo gypsy" href="/">Cake Gypsy</a>
+        <a class="brand-logo gypsy" href="/">The Cake Shop</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li>
@@ -26,16 +33,68 @@
             </li>
 
             <li class="divider"> </li>
-            <li>
-                    <a href="/create">Create</a>
-            </li>
-            <li>
-                    <a  href="/seedTreats">Seed</a>
-            </li>
+
+           <% if (currentUser) { %>
+                <li>
+                        <a href="/create">Create</a>
+                </li>
+                <li>
+                        <a  href="/seedTreats">Seed</a>
+                </li>
+                <li> 
+                     <a href="/app"><%=currentUser.username%></a>
+                </li>
+                <li>
+                        <form action="/sessions?_method=DELETE" method="POST">
+                            <input type="submit" class="btn" value="Log Out">
+                        </form>
+                </li>
+                <% } else { %>
+                    <li>
+                        <a href="/sessions/new" class="waves-effect waves-light btn-small">Log In</a>
+                    </li>
+                <%} %>
+
         </ul>
+
+        <ul class="sidenav" id='mobile-demo'>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                        <a href="#bottom-section">About</a>
+                </li>
+                <li>
+                        <a href="contact">Contact</a>
+                </li>
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown2">Treats<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+    
+                <li class="divider"> </li>
+                
+    
+               <% if (currentUser) { %>
+                    <li>
+                            <a href="/create">Create</a>
+                    </li>
+                    <li>
+                            <a  href="/seedTreats">Seed</a>
+                    </li>
+                    <li> 
+                         <a href="/app"><%=currentUser.username%></a>
+                    </li>
+                    <li>
+                            <form action="/?_method=DELETE" method="">
+                                <input type="submit" class="btn" value="Log Out">
+                            </form>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="/sessions/new" class="waves-effect waves-light btn-small">Log In</a>
+                    </li>
+                <%} %>
+            </ul>
     </div>
-        
-            
-
-
+    
 </nav>

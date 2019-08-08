@@ -4,14 +4,118 @@
    <% include ../../partials/head.ejs %>
 </head>
 <body>
-    <% include ../../partials/nav.ejs %>
-
-    <h1>Sign In</h1>
-    <form action="/sessions" method="POST">
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password">
-        <input type="submit" value="Log In">
-    </form>
-
+        <nav>
+                <!-- dropdown menu -->
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="/cupcake">Cupcakes</a></li>
+                        <li><a href="/cookie">Cookies & Bars</a></li>
+                        <li><a href="/cakePop">Cake Pops</a></li>
+                        <li><a href="/cakes">Cakes</a></li>
+                        <li><a href="/macaron">Macarons</a></li>
+                    </ul>
+                    <ul id="dropdown2" class="dropdown-content">
+                        <li><a href="/cupcake">Cupcakes</a></li>
+                        <li><a href="/cookie">Cookies & Bars</a></li>
+                        <li><a href="/cakePop">Cake Pops</a></li>
+                        <li><a href="/cakes">Cakes</a></li>
+                        <li><a href="/macaron">Macarons</a></li>
+                    </ul>
+                    <!-- Navbar content -->
+                <div class="nav-wrapper pink">
+                    <a class="brand-logo gypsy" href="/">Cake Gypsy</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                                <a href="#bottom-section">About</a>
+                        </li>
+                        <li>
+                                <a href="contact">Contact</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-trigger" href="#!" data-target="dropdown1">Treats<i class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+            
+                        <li class="divider"> </li>
+            
+                       <% if (currentUser) { %>
+                            <li>
+                                    <a href="/create">Create</a>
+                            </li>
+                            <li>
+                                    <a  href="/seedTreats">Seed</a>
+                            </li>
+                            <li> 
+                                 <a href="/app"><%=currentUser.username%></a>
+                            </li>
+                            <li>
+                                    <form action="/sessions?_method=DELETE" method="POST">
+                                        <input type="submit" class="btn" value="Log Out">
+                                    </form>
+                            </li>
+                            <% } else { %>
+                                <li>
+                                    <a href="/sessions/new" class="waves-effect waves-light btn-small">Log In</a>
+                                </li>
+                            <%} %>
+            
+                    </ul>
+            
+                    <ul class="sidenav" id='mobile-demo'>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                    <a href="/#bottom-section">About</a>
+                            </li>
+                            <li>
+                                    <a href="contact">Contact</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-trigger" href="#!" data-target="dropdown2">Treats<i class="material-icons right">arrow_drop_down</i></a>
+                            </li>
+                
+                            <li class="divider"> </li>
+                            
+                
+                           <% if (currentUser) { %>
+                                <li>
+                                        <a href="/create">Create</a>
+                                </li>
+                                <li>
+                                        <a  href="/seedTreats">Seed</a>
+                                </li>
+                                <li> 
+                                     <a href="/app"><%=currentUser.username%></a>
+                                </li>
+                                <li>
+                                        <form action="/?_method=DELETE" method="POST">
+                                            <input type="submit" class="btn" value="Log Out">
+                                        </form>
+                                </li>
+                            <% } else { %>
+                                <li>
+                                    <a href="/sessions/new" class="waves-effect waves-light btn-small">Log In</a>
+                                </li>
+                            <%} %>
+                        </ul>
+                </div>
+                
+            </nav>
+<div class="container">
+        <h3>Sign In</h3>
+        <form action="/sessions" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="username">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <input type="submit" class="btn" value="Log In">
+        </form>
+    <br><br><br>
+</div>
+    
+    <% include ../../partials/footer.ejs %>
 </body>
 </html>

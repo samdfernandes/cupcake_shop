@@ -11,23 +11,30 @@
     <div class="container">
        
         <div class="row">
-            <%treats.forEach((cupcake, index) => {%>        
-                <div class="col s6 m4 l3">
-                    <div class="card medium">
-                        <div class="card-image">
-                            <img class="circle responsive-img" src="<%=cupcake.image%>">
-                            <span class="card-title"><%=cupcake.name.toUpperCase()%></span>
+            <%treats.forEach((treat, index) => {%>        
+                <div class="col s6 m4">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="<%=treat.image%>">
+                    
                         </div>
                         <div class="card-content">
-                            <p><%=cupcake.description%></p>
-                            <p>Price: $<%=cupcake.unitPrice%>0</p>
+                                <span class="card-title card-title-font activator grey-text text-darken-4"><%=treat.name%><i class="material-icons right">more_vert</i></span>
                         </div>
-                        <div class="card-action">
-                            <form action="/cupcakes/<%=cupcake.id%>?_method=DELETE" method="POST">
-                                <input type="submit" name="delete" id="delete" value="DELETE" class="btn lime">
-                            </form>
-                            <a href="cupcakes/<%=cupcake.id%>/edit" class="card-link">Edit</a>
+                        <div class="card-reveal">
+                                <span class="card-title card-title-font grey-text text-darken-4"><%=treat.name%></span>
+                                <p><%=treat.description%></p>
+                                <p>Price: $<%=treat.unitPrice%>0</p>
+                                <% if (currentUser) { %>
+                                    <div class="card-action">
+                                            <form action="/<%=treat.type%>/<%=treat.id%>?_method=DELETE" method="POST">
+                                                <input type="submit" name="delete" id="delete" value="DELETE" class="btn lime">
+                                            </form>
+                                            <a href="<%=treat.type%>/<%=treat.id%>/edit" class="card-link">Edit</a>
+                                    </div>
+                               <% } %>
                         </div>
+                        
                     </div>
                 
                 </div> 

@@ -14,12 +14,13 @@ const Treat = require('../models/treat')
 
 //Show Macarons
 router.get('/', (req, res) => {
-    Treat.find({type: 'macarons'}, (err, foundMacarons) => {
+    Treat.find({type: 'macaron'}, (err, foundMacarons) => {
         if (err) {
             console.log(err);
         } else {
             res.render('macarons.ejs', {
-                treats: foundMacarons
+                treats: foundMacarons,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -28,7 +29,7 @@ router.get('/', (req, res) => {
 //delete Macarons
 router.delete('/:id', (req, res) => {
     Treat.findByIdAndRemove(req.params.id, (err, foundMacarons) => {
-        res.redirect('/macarons')
+        res.redirect('/macaron')
     })
 })
 
@@ -39,7 +40,8 @@ router.get('/:id/edit', (req, res) => {
             console.log(err);
         } else  {
             res.render('edit.ejs', {
-                treat: foundTreat
+                treat: foundTreat,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -51,7 +53,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
         } else {
             console.log(updatedTreat);
-            res.redirect(`/macarons`)
+            res.redirect(`/macaron`)
         }
     })
 })
