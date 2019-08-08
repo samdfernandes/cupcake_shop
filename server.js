@@ -115,6 +115,17 @@ app.get('/app', (req, res) => {
     })
 })
 
+app.get('/drop', (req, res) => {
+    Treat.remove({}, (err, data) => {
+        if (err) {
+            console.log(data);
+        } else {
+            console.log(data);
+            
+        }
+    });
+    res.redirect('/')
+})
 
 app.get('/cakes', (req, res) => {
     res.render('cakes.ejs', {
