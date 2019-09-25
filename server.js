@@ -115,6 +115,8 @@ app.get('/app', (req, res) => {
     })
 })
 
+///// CAREFUL!!! THIS WILL DELETE YOUR ENTIRE DATABASE 
+
 app.get('/drop', (req, res) => {
     Treat.remove({}, (err, data) => {
         if (err) {
