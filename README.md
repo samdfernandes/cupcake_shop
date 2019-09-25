@@ -5,6 +5,8 @@ Please visit [my live page](https://obscure-badlands-99546.herokuapp.com/)
 - HTML
 - CSS
 - Materialize (CSS Framework)
+- Javascript
+- JQuery
 - Express
 - EJS
 - MongoDB
